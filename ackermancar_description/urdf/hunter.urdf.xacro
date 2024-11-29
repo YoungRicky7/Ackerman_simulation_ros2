@@ -318,7 +318,6 @@
   <xacro:rear_wheel_joint prefix="left" x="-0.28" y="0.29" z="-0.1955" rz="0" yaxis="1"/>
   <xacro:rear_wheel_joint prefix="right" x="-0.28" y="-0.29" z="-0.1955" rz="0" yaxis="1"/>
   
-
   <!-- virtual link -->
   <joint name="bracket_link_fix" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0" />
@@ -327,7 +326,6 @@
     <axis xyz="0 0 1" />
   </joint>
  
-
   <xacro:sonar_link prefix="front"/>
   <xacro:sonar_link prefix="rear"/>
 
@@ -439,16 +437,16 @@
     <material>Gazebo/White</material>
   </gazebo>
 
-  <xacro:gazebo_wheel prefix="front_left" mu1="1.0" mu2="1.0" kp="1e8" kd="1.0"/>
-  <xacro:gazebo_wheel prefix="front_right" mu1="1.0" mu2="1.0" kp="1e8" kd="1.0"/>
-  <xacro:gazebo_wheel prefix="rear_left" mu1="1.0" mu2="1.0" kp="1e8" kd="1.0"/>
-  <xacro:gazebo_wheel prefix="rear_right" mu1="1.0" mu2="1.0" kp="1e8" kd="1.0"/>
+  <xacro:gazebo_wheel prefix="front_left" mu1="5.0" mu2="5.0" kp="1e8" kd="1.0"/>
+  <xacro:gazebo_wheel prefix="front_right" mu1="5.0" mu2="5.0" kp="1e8" kd="1.0"/>
+  <xacro:gazebo_wheel prefix="rear_left" mu1="5.0" mu2="5.0" kp="1e8" kd="1.0"/>
+  <xacro:gazebo_wheel prefix="rear_right" mu1="5.0" mu2="5.0" kp="1e8" kd="1.0"/>
 
   <!-- ackmann driver model -->
   <gazebo>
     <plugin name="gazebo_ros_ackermann_drive" filename="libgazebo_ros_ackermann_drive.so">
       <ros>
-        <namespace>/orbbec_hunter2</namespace>
+        <namespace>/orbbec_hunter</namespace>
         <remapping> cmd_vel:=cmd_vel </remapping>
         <remapping> odom:=odom </remapping>
         <remapping> distance:=distance </remapping>

@@ -24,7 +24,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="$(find ackermancar_description)/meshes/visual/chassis_and_frame.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/chassis_and_frame.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1"/>

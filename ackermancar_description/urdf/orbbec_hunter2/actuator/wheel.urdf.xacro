@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- <xacro:include filename="$(find fishbot_description)/urdf/fishbot/common_inertia.xacro" /> -->
+    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visual_dir.urdf.xacro" />
+
+    <xacro:property name="wheel_width" value="0.14"/>
+    <xacro:property name="wheel_radius" value="0.165"/>
+
+    <xacro:macro name="wheel" params="prefix">
+        <link name="${prefix}_wheel">
+            <inertial>
+                <origin xyz="0 0.0016115 0" rpy="0 0 0" />
+                <mass value="20" />
+                <inertia ixx="0.06368" ixy="0" ixz="0" iyy="0.11064" iyz="0" izz="0.06368" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="${VISUAL_DIR}/${prefix}_wheel.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.24314 0.51765 0.9451 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+                <geometry>
+                    <!-- SHOULD use cylinder as collision, otherwise ackermann_driver will failed silently -->
+                    <cylinder length="${wheel_width}" radius="${wheel_radius}"/>
+                </geometry>
+            </collision>
+        </link>
+    </xacro:macro>
+
+    <xacro:macro name="gazebo_wheel" params="prefix mu1 mu2 kp kd">
+        <gazebo reference="${prefix}_wheel">
+            <!-- <turnGravityOff>false </turnGravityOff>   -->
+            <material>Gazebo/DarkGrey</material>
+            <mu1 value="${mu1}"/>
+            <mu2 value="${mu2}"/>
+            <kp value="${kp}" />
+            <kd value="${kd}" />
+        </gazebo>
+    </xacro:macro>
+
+    <xacro:macro name="front_wheel_joint" params="prefix x y z rz yaxis">
+        <joint name="front_${prefix}_wheel_joint" type="continuous">
+            <origin xyz="${x} ${y} ${z}" rpy="0 0 ${rz}" />
+            <parent link="front_${prefix}_steering_link" />
+            <child link="front_${prefix}_wheel" />
+            <dynamics damping="0.5" friction="0.5"/>
+            <axis xyz="0 ${yaxis} 0" />
+            <limit effort="1000.0" velocity="100"/>
+        </joint>
+    </xacro:macro>
+
+    <xacro:macro name="rear_wheel_joint" params="prefix x y z rz yaxis">
+        <joint name="rear_${prefix}_wheel_joint" type="continuous">
+            <origin xyz="${x} ${y} ${z}" rpy="0 0 ${rz}" />
+            <parent link="base_link" />
+            <child link="rear_${prefix}_wheel" />
+            <dynamics damping="0.5" friction="0.5"/>
+            <axis xyz="0 ${yaxis} 0" />
+            <limit effort="1000.0" velocity="500.0"/>
+        </joint>
+    </xacro:macro>
+
+    <xacro:gazebo_wheel prefix="front_left" mu1="5.0" mu2="5.0" kp="1e8" kd="1.0"/>
+    <xacro:gazebo_wheel prefix="front_right" mu1="5.0" mu2="5.0" kp="1e8" kd="1.0"/>
+    <xacro:gazebo_wheel prefix="rear_left" mu1="5.0" mu2="5.0" kp="1e8" kd="1.0"/>
+    <xacro:gazebo_wheel prefix="rear_right" mu1="5.0" mu2="5.0" kp="1e8" kd="1.0"/>
+
+</robot>

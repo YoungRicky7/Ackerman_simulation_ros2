@@ -38,7 +38,7 @@ def generate_launch_description():
    pkg_share = FindPackageShare(package=package_name).find(package_name)
    world_path = os.path.join(pkg_path, world_file_path)  
 
-   xacro_name = "hunter.urdf.xacro"
+   xacro_name = "orbbec_hunter2/hunter.xacro"
    urdf_name = "hunter.urdf"
    urdf_model_path = os.path.join(pkg_share, f'urdf/{urdf_name}')
    xacro_model_path = os.path.join(pkg_share, f'urdf/{xacro_name}')
@@ -77,7 +77,7 @@ def generate_launch_description():
 
    spawn_x_val = '0.0'
    spawn_y_val = '0.0'
-   spawn_z_val = '0.3593'
+   spawn_z_val = '0.4'
    spawn_yaw_val = '0.0'
 
    start_gazebo_cmd = ExecuteProcess(
