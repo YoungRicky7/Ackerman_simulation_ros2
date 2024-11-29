@@ -38,8 +38,8 @@ def generate_launch_description():
    pkg_share = FindPackageShare(package=package_name).find(package_name)
    world_path = os.path.join(pkg_path, world_file_path)  
 
-   xacro_name = "autocar_urdf_ackermann_for_gazebo.xacro"
-   urdf_name = "autocar_urdf_ackermann.urdf"
+   xacro_name = "hunter.urdf.xacro"
+   urdf_name = "hunter.urdf"
    urdf_model_path = os.path.join(pkg_share, f'urdf/{urdf_name}')
    xacro_model_path = os.path.join(pkg_share, f'urdf/{xacro_name}')
 

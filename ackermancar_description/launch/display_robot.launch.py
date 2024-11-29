@@ -31,8 +31,8 @@ from launch.substitutions import Command
 
 def generate_launch_description():
     package_name = 'ackermancar_description'
-    xacro_name = "autocar_urdf_ackermann.xacro"
-    urdf_name = "autocar_urdf_ackermann.urdf"
+    xacro_name = "hunter.urdf.xacro"
+    urdf_name = "hunter.urdf"
 
     pkg_share = FindPackageShare(package=package_name).find(package_name) 
     urdf_model_path = os.path.join(pkg_share, f'urdf/{urdf_name}')
@@ -46,7 +46,7 @@ def generate_launch_description():
         description="Absolute path to rviz config file",
     )
 
-    robot_description = ParameterValue(Command(['xacro'+' ', xacro_model_path]),
+    robot_description = ParameterValue(Command(['cat'+' ', urdf_model_path]),
                                        value_type=str)
 
     robot_state_publisher_node = Node(
