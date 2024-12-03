@@ -2,22 +2,12 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visual_dir.urdf.xacro"/>
 
-    <link name="dummy_base">
-    </link>
-
-    <joint name="dummy_base_joint" type="fixed">
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <parent link="dummy_base"/>
-        <child link="base_link"/>
-        <axis xyz="0 0 1" />
-    </joint>
-
     <link name="base_link">
-        <inertial>
+        <!-- <inertial>
             <origin xyz="0.0075625 -0.0046146 -0.13361" rpy="0 0 0" />
             <mass value="75"/>
             <inertia ixx="0.031279" ixy="0" ixz="0" iyy="0.098367" iyz="0" izz="0.11285" />
-        </inertial>
+        </inertial> -->
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
@@ -34,6 +24,15 @@
             </geometry>
         </collision>
     </link>
+
+    <link name="base_footprint">
+    </link>
+    <joint name="base_footprint_joint" type="fixed">
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <axis xyz="0 0 -0.01"/>
+    </joint>
 
     <link name="bracket_link">
     </link>

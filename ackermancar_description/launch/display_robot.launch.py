@@ -31,12 +31,11 @@ from launch.substitutions import Command
 
 def generate_launch_description():
     package_name = 'ackermancar_description'
-    xacro_name = "hunter.urdf.xacro"
     urdf_name = "hunter.urdf"
+    file_prefix = "urdf/orbbec_hunter2/"
 
     pkg_share = FindPackageShare(package=package_name).find(package_name) 
-    urdf_model_path = os.path.join(pkg_share, f'urdf/{urdf_name}')
-    xacro_model_path = os.path.join(pkg_share, f'urdf/{xacro_name}')
+    urdf_model_path = os.path.join(pkg_share, f"{file_prefix+urdf_name}")
 
     rviz_path = os.path.join(pkg_share ,'rviz/display_robot_model.rviz')
 

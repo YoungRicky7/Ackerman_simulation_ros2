@@ -45,9 +45,22 @@ def generate_launch_description():
             "run",
             "teleop_twist_keyboard",
             "teleop_twist_keyboard",
+        ],
+        name="teleop_keyboard",
+        output="screen",
+    )
+
+    teleop_command_remapped = ExecuteProcess(
+        cmd=[
+            "gnome-terminal",
+            "--",
+            "ros2",
+            "run",
+            "teleop_twist_keyboard",
+            "teleop_twist_keyboard",
             "--ros-args",
             "-r",
-            "cmd_vel:=/orbbec_hunter/cmd_vel",
+            "cmd_vel:=/orbbec_hunter2/cmd_vel",
         ],
         name="teleop_keyboard",
         output="screen",

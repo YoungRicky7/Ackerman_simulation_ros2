@@ -30,44 +30,43 @@ from launch_ros.parameter_descriptions import ParameterValue
 from launch.substitutions import Command
 
 def generate_launch_description():
-   robot_name = "orbbec_hunter2"
-   package_name = "ackermancar_description"
-   world_file_path = "worlds/neighborhood.world"
+    robot_name = "orbbec_hunter2"
+    file_prefix = "urdf/orbbec_hunter2/"
+    package_name = "ackermancar_description"
+    world_file_path = "world/simple_room.world"
 
-   pkg_path = os.path.join(get_package_share_directory(package_name))
-   pkg_share = FindPackageShare(package=package_name).find(package_name)
-   world_path = os.path.join(pkg_path, world_file_path)  
+    pkg_path = os.path.join(get_package_share_directory(package_name))
+    pkg_share = FindPackageShare(package=package_name).find(package_name)
+    world_path = os.path.join(pkg_path, world_file_path)  
+    print(world_path)
+    xacro_name = "hunter.urdf.xacro"
+    xacro_model_path = os.path.join(pkg_share, f"{file_prefix+xacro_name}")
 
-   xacro_name = "orbbec_hunter2/hunter.xacro"
-   urdf_name = "hunter.urdf"
-   urdf_model_path = os.path.join(pkg_share, f'urdf/{urdf_name}')
-   xacro_model_path = os.path.join(pkg_share, f'urdf/{xacro_name}')
+    rviz_path = os.path.join(pkg_share, "rviz/gazebo.rviz")
 
-   rviz_path = os.path.join(pkg_share, "rviz/gazebo.rviz")
-
-   rvizconfig = DeclareLaunchArgument(
+    rvizconfig = DeclareLaunchArgument(
       name="rvizconfig",
       default_value=str(rviz_path),
       description="Absolute path to rviz config file",
    )
 
-   robot_description = ParameterValue(
+    robot_description = ParameterValue(
       Command(["xacro" + " ", xacro_model_path]), value_type=str
    )
 
-   robot_state_publisher_node = Node(
+    robot_state_publisher_node = Node(
       package="robot_state_publisher",
       executable="robot_state_publisher",
       parameters=[{"robot_description": robot_description}],
    )
 
-   joint_state_publisher_node = Node(
+    joint_state_publisher_node = Node(
       package="joint_state_publisher",
       executable="joint_state_publisher",
       parameters=[{"robot_description": robot_description}],
    )
 
-   rviz2_node = Node(
+    rviz2_node = Node(
       package="rviz2",
       executable="rviz2",
       name="rviz2",
@@ -75,16 +74,17 @@ def generate_launch_description():
       arguments=["-d", LaunchConfiguration("rvizconfig")],
    )
 
-   spawn_x_val = '0.0'
-   spawn_y_val = '0.0'
-   spawn_z_val = '0.4'
-   spawn_yaw_val = '0.0'
+    spawn_x_val = '0.0'
+    spawn_y_val = '0.0'
+    spawn_z_val = '0.4'
+    spawn_yaw_val = '0.0'
 
-   start_gazebo_cmd = ExecuteProcess(
-      cmd=["gazebo", "--verbose", "-s", "libgazebo_ros_factory.so"], output="screen"
-   )
+    start_gazebo_cmd = ExecuteProcess(
+        cmd=["gazebo", "--verbose", "-s", "libgazebo_ros_factory.so"],
+        output="screen",
+    )
 
-   spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
+    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
                   arguments=['-topic', 'robot_description',
                               '-entity', robot_name,
                               '-x', spawn_x_val,
@@ -93,4 +93,4 @@ def generate_launch_description():
                               '-Y', spawn_yaw_val],
                   output='screen')
 
-   return LaunchDescription([robot_state_publisher_node,joint_state_publisher_node,rvizconfig,rviz2_node,start_gazebo_cmd, spawn_entity])
+    return LaunchDescription([robot_state_publisher_node,joint_state_publisher_node,rvizconfig,rviz2_node,start_gazebo_cmd, spawn_entity])

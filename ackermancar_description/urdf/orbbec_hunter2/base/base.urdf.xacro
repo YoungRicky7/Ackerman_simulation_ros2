@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="base" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="orbbec_hunter2_base" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
     <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/actuator/wheel.urdf.xacro"/>
     <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/actuator/steer.urdf.xacro"/>
