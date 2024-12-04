@@ -69,7 +69,7 @@
 
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <parameters>$(find ackermancar_description)/config/controller.yaml</parameters>
+            <parameters>$(find ackermancar_description)/params/controller.yaml</parameters>
         </plugin>
     </gazebo>
 </robot>

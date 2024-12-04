@@ -31,7 +31,7 @@
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <parent link="base_footprint"/>
         <child link="base_link"/>
-        <axis xyz="0 0 -0.01"/>
+        <axis xyz="0 0 0.01"/>
     </joint>
 
     <link name="bracket_link">

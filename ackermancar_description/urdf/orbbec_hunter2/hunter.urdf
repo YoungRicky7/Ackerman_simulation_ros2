@@ -45,15 +45,15 @@
     <axis xyz="0 0 1"/>
   </joint>
   <link name="base_link">
-    <inertial>
-      <origin rpy="0 0 0" xyz="0.0075625 -0.0046146 -0.13361"/>
-      <mass value="75"/>
-      <inertia ixx="0.031279" ixy="0" ixz="0" iyy="0.098367" iyz="0" izz="0.11285"/>
-    </inertial>
+    <!-- <inertial>
+            <origin xyz="0.0075625 -0.0046146 -0.13361" rpy="0 0 0" />
+            <mass value="75"/>
+            <inertia ixx="0.031279" ixy="0" ixz="0" iyy="0.098367" iyz="0" izz="0.11285" />
+        </inertial> -->
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/chassis_and_frame.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/chassis_and_frame.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1"/>
@@ -62,7 +62,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/chassis_and_frame.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/chassis_and_frame.STL"/>
       </geometry>
     </collision>
   </link>
@@ -70,9 +70,9 @@
     </link>
   <joint name="base_footprint_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="base_link"/>
-    <child link="base_footprint"/>
-    <axis xyz="0 0 -1"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <axis xyz="0 0 0.1"/>
   </joint>
   <link name="bracket_link">
     </link>
@@ -103,7 +103,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/front_left_wheel.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/front_left_wheel.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.24314 0.51765 0.9451 1"/>
@@ -126,7 +126,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/front_right_wheel.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/front_right_wheel.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.24314 0.51765 0.9451 1"/>
@@ -149,7 +149,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/rear_left_wheel.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/rear_left_wheel.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.24314 0.51765 0.9451 1"/>
@@ -172,7 +172,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/rear_right_wheel.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/rear_right_wheel.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.24314 0.51765 0.9451 1"/>
@@ -195,7 +195,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/front_left_steering.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/front_left_steering.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1"/>
@@ -204,7 +204,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/front_left_steering.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/front_left_steering.STL"/>
       </geometry>
     </collision>
   </link>
@@ -217,7 +217,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/front_right_steering.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/front_right_steering.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1"/>
@@ -226,7 +226,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/front_right_steering.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/front_right_steering.STL"/>
       </geometry>
     </collision>
   </link>
@@ -319,7 +319,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/depth_camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/depth_camera.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1"/>
@@ -328,7 +328,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/depth_camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/depth_camera.STL"/>
       </geometry>
     </collision>
   </link>
@@ -373,7 +373,7 @@
       </plugin>
     </sensor>
   </gazebo>
-  <link name="lidar_link">
+  <link name="lidar">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0.036317"/>
       <mass value="0.9"/>
@@ -382,7 +382,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/lidar.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/lidar.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.082353 0.082353 0.082353 1"/>
@@ -391,19 +391,19 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/lidar.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/lidar.STL"/>
       </geometry>
     </collision>
   </link>
   <!-- LiDAR -->
-  <joint name="lidar_link_joint" type="fixed">
+  <joint name="lidar_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.04 0 0.9656"/>
     <parent link="bracket_link"/>
-    <child link="lidar_link"/>
+    <child link="lidar"/>
     <axis xyz="0 0 -1"/>
   </joint>
   <!-- laser sensor -->
-  <gazebo reference="lidar_link">
+  <gazebo reference="lidar">
     <material>Gazebo/Black</material>
     <sensor name="rplidar" type="ray">
       <pose>0 0 0 0 0 0</pose>
@@ -517,7 +517,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/sonar.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/sonar.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.46275 0.46275 0.45882 1"/>
@@ -526,7 +526,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/sonar.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/sonar.STL"/>
       </geometry>
     </collision>
   </link>
@@ -539,7 +539,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/sonar.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/sonar.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.46275 0.46275 0.45882 1"/>
@@ -548,7 +548,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/sonar.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/sonar.STL"/>
       </geometry>
     </collision>
   </link>
@@ -573,7 +573,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/camera.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1"/>
@@ -582,7 +582,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/camera.STL"/>
       </geometry>
     </collision>
   </link>
@@ -595,7 +595,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/camera.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1"/>
@@ -604,7 +604,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/camera.STL"/>
       </geometry>
     </collision>
   </link>
@@ -617,7 +617,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/camera.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1"/>
@@ -626,7 +626,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/camera.STL"/>
       </geometry>
     </collision>
   </link>
@@ -639,7 +639,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/camera.STL"/>
       </geometry>
       <material name="">
         <color rgba="0.79216 0.81961 0.93333 1"/>
@@ -648,7 +648,7 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="/home/youngricky/graduation_project_ws/install/ackermancar_description/share/ackermancar_description/meshes/visual/camera.STL"/>
+        <mesh filename="package://ackermancar_description/meshes/visual/camera.STL"/>
       </geometry>
     </collision>
   </link>

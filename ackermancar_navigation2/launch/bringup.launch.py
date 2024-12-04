@@ -1,5 +1,6 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
+
 # terminator command class
 from launch.actions import ExecuteProcess
 from launch.substitutions import FindExecutable
@@ -18,7 +19,7 @@ from launch.actions import GroupAction
 
 # event
 from launch.event_handlers import OnProcessStart, OnProcessExit
-from launch.actions import ExecuteProcess, RegisterEventHandler,LogInfo
+from launch.actions import ExecuteProcess, RegisterEventHandler, LogInfo
 
 # obtain the "share" path of the package
 from ament_index_python.packages import get_package_share_directory
@@ -29,45 +30,16 @@ import os
 from launch_ros.parameter_descriptions import ParameterValue
 from launch.substitutions import Command
 
-def generate_launch_description():
 
+def generate_launch_description():
     gazebo_launch_file = os.path.join(
         get_package_share_directory("ackermancar_description"),
         "launch",
-        "gazebo.launch.py",
+        "gazebo_with_teleop_twist_keyboard.launch.py",
     )
 
-    teleop_command = ExecuteProcess(
-        cmd=[
-            "gnome-terminal",
-            "--",
-            "ros2",
-            "run",
-            "teleop_twist_keyboard",
-            "teleop_twist_keyboard",
-        ],
-        name="teleop_keyboard",
-        output="screen",
+    gazebo_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(gazebo_launch_file)
     )
 
-    teleop_command_remapped = ExecuteProcess(
-        cmd=[
-            "gnome-terminal",
-            "--",
-            "ros2",
-            "run",
-            "teleop_twist_keyboard",
-            "teleop_twist_keyboard",
-            "--ros-args",
-            "-r",
-            "cmd_vel:=/orbbec_hunter2/cmd_vel",
-        ],
-        name="teleop_keyboard",
-        output="screen",
-    )
-
-    gazebo_launch = IncludeLaunchDescription(PythonLaunchDescriptionSource(gazebo_launch_file))
-
-    return LaunchDescription(
-        [gazebo_launch, teleop_command]
-    )
+    return LaunchDescription([gazebo_launch])

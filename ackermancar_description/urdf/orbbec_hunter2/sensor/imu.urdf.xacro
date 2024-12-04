@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visuial_dir.urdf.xacro"/>
+    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visual_dir.urdf.xacro"/>
     <!-- imu sensor-->
     <gazebo reference="depth_camera_link">
         <material>Gazebo/Black</material>

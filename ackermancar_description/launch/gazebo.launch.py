@@ -33,7 +33,7 @@ def generate_launch_description():
     robot_name = "orbbec_hunter2"
     file_prefix = "urdf/orbbec_hunter2/"
     package_name = "ackermancar_description"
-    world_file_path = "world/simple_room.world"
+    world_file_path = "worlds/simple_world.world"
 
     pkg_path = os.path.join(get_package_share_directory(package_name))
     pkg_share = FindPackageShare(package=package_name).find(package_name)
@@ -80,7 +80,7 @@ def generate_launch_description():
     spawn_yaw_val = '0.0'
 
     start_gazebo_cmd = ExecuteProcess(
-        cmd=["gazebo", "--verbose", "-s", "libgazebo_ros_factory.so"],
+        cmd=["gazebo", "--verbose", world_path, "-s", "libgazebo_ros_factory.so"],
         output="screen",
     )
 

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visuial_dir.urdf.xacro"/>
-    <link name="lidar_link">
+    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visual_dir.urdf.xacro"/>
+    <link name="lidar">
         <inertial>
             <origin xyz="0 0 0.036317" rpy="0 0 0" />
             <mass value="0.9" />
@@ -26,15 +26,15 @@
     </link>
 
     <!-- LiDAR -->
-    <joint name="lidar_link_joint" type="fixed">
+    <joint name="lidar_joint" type="fixed">
         <origin xyz="0.04 0 0.9656" rpy="0 0 0" />
         <parent link="bracket_link" />
-        <child link="lidar_link" />
+        <child link="lidar" />
         <axis xyz="0 0 -1" />
     </joint>
 
     <!-- laser sensor -->
-    <gazebo reference="lidar_link">
+    <gazebo reference="lidar">
         <material>Gazebo/Black</material>
         <sensor type="ray" name="rplidar">
             <pose>0 0 0 0 0 0</pose>
