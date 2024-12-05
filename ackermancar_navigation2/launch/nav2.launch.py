@@ -51,7 +51,7 @@ def generate_launch_description():
         "nav2_default_view.rviz",
     )
 
-    rvi2_node = Node(
+    rviz2_node = Node(
         package='rviz2',
         executable='rviz2',
         name='rviz2',
@@ -63,7 +63,7 @@ def generate_launch_description():
     map_yaml_path = DeclareLaunchArgument(
         "map_yaml_path", default_value=os.path.join(pkg_share, "maps", "simple_world.yaml")
     )
-    nav2_param_path = DeclareLaunchArgument(
+    param_path = DeclareLaunchArgument(
         "params_file_path",
         default_value=os.path.join(pkg_share, "params", "nav2_params.yaml"),
     )
@@ -86,9 +86,9 @@ def generate_launch_description():
         [
             use_sim_time,
             map_yaml_path,
-            nav2_param_path,
+            param_path,
             gazebo_launch,
-            rvi2_node,
             nav2_bringup_launch,
+            rviz2_node,
         ]
     )

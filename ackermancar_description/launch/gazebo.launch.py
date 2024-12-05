@@ -50,38 +50,56 @@ def generate_launch_description():
       description="Absolute path to rviz config file",
    )
 
+    use_sim_time = DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="true",
+        description="Use simulation (Gazebo) clock if true",
+    )
+
     robot_description = ParameterValue(
       Command(["xacro" + " ", xacro_model_path]), value_type=str
    )
 
     robot_state_publisher_node = Node(
-      package="robot_state_publisher",
-      executable="robot_state_publisher",
-      parameters=[{"robot_description": robot_description}],
-   )
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
+        parameters=[
+            {
+                "robot_description": robot_description,
+                "use_sim_time": LaunchConfiguration("use_sim_time"),
+            }
+        ],
+    )
 
     joint_state_publisher_node = Node(
-      package="joint_state_publisher",
-      executable="joint_state_publisher",
-      parameters=[{"robot_description": robot_description}],
-   )
+        package="joint_state_publisher",
+        executable="joint_state_publisher",
+        parameters=[
+            {
+                "robot_description": robot_description,
+                "use_sim_time": LaunchConfiguration("use_sim_time"),
+            }
+        ],
+    )
 
-    rviz2_node = Node(
-      package="rviz2",
-      executable="rviz2",
-      name="rviz2",
-      output="screen",
-      arguments=["-d", LaunchConfiguration("rvizconfig")],
-   )
+    # rviz2_node = Node(
+    #     package="rviz2",
+    #     executable="rviz2",
+    #     name="rviz2",
+    #     output="screen",
+    #     arguments=["-d", LaunchConfiguration("rvizconfig")],
+    # )
 
     spawn_x_val = '0.0'
     spawn_y_val = '0.0'
     spawn_z_val = '0.4'
     spawn_yaw_val = '0.0'
 
-    start_gazebo_cmd = ExecuteProcess(
-        cmd=["gazebo", "--verbose", world_path, "-s", "libgazebo_ros_factory.so"],
-        output="screen",
+    launch_gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            [get_package_share_directory("gazebo_ros"), "/launch", "/gazebo.launch.py"]
+        ),
+        launch_arguments=[("world", world_path), ("verbose", "true")],
     )
 
     spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',
@@ -93,4 +111,13 @@ def generate_launch_description():
                               '-Y', spawn_yaw_val],
                   output='screen')
 
-    return LaunchDescription([robot_state_publisher_node,joint_state_publisher_node,rvizconfig,rviz2_node,start_gazebo_cmd, spawn_entity])
+    return LaunchDescription(
+        [
+            use_sim_time,
+            launch_gazebo,
+            spawn_entity,
+            robot_state_publisher_node,
+            joint_state_publisher_node,
+            rvizconfig,
+        ]
+    )
