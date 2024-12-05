@@ -32,13 +32,14 @@ from launch.substitutions import Command
 
 
 def generate_launch_description():
-    bringup_launch_file = os.path.join(
-        get_package_share_directory("ackermancar_navigation2"),
+    gazebo_launch_file = os.path.join(
+        get_package_share_directory("ackermancar_description"),
         "launch",
-        "bringup.launch.py",
+        "gazebo_with_teleop_twist_keyboard.launch.py",
     )
-    bringup_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(bringup_launch_file)
+
+    gazebo_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(gazebo_launch_file)
     )
 
     mapping_launch_file = os.path.join(
@@ -50,4 +51,4 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(mapping_launch_file)
     )
 
-    return LaunchDescription([bringup_launch, mapping_launch])
+    return LaunchDescription([gazebo_launch, mapping_launch])
