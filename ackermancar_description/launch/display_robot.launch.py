@@ -31,8 +31,9 @@ from launch.substitutions import Command
 
 def generate_launch_description():
     package_name = 'ackermancar_description'
-    urdf_name = "hunter.urdf"
-    file_prefix = "urdf/orbbec_hunter2/"
+    robot_name = "hunter2"
+    urdf_name = robot_name+".urdf"
+    file_prefix = "urdf/"+robot_name+"/"
 
     pkg_share = FindPackageShare(package=package_name).find(package_name) 
     urdf_model_path = os.path.join(pkg_share, f"{file_prefix+urdf_name}")

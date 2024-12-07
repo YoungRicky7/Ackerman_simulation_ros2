@@ -82,6 +82,19 @@ def generate_launch_description():
         }.items(),
     )
 
+    initial_pose_cmd = ExecuteProcess(
+        cmd=[
+            FindExecutable(name="ros2"),
+            "topic",
+            "pub",
+            "-1",
+            "/initialpose",
+            "geometry_msgs/PoseWithCovarianceStamped",
+            "{header: {frame_id: 'map'}, pose: {pose: {position: {x: -3.0, y: -8.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}, covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}}",
+        ],
+        output="screen",
+    )
+
     return LaunchDescription(
         [
             use_sim_time,
@@ -90,5 +103,6 @@ def generate_launch_description():
             gazebo_launch,
             nav2_bringup_launch,
             rviz2_node,
+            initial_pose_cmd,
         ]
     )

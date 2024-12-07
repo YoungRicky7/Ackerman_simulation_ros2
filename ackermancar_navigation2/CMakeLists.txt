@@ -7,10 +7,22 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(gazebo_msgs REQUIRED)
+find_package(rclcpp REQUIRED)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+add_executable(init_initial_pose src/init_initial_pose.cpp)
+ament_target_dependencies(
+  init_initial_pose 
+  "gazebo_msgs"
+  "rclcpp"
+  )
+
+install(TARGETS init_initial_pose
+  DESTINATION lib/${PROJECT_NAME})
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

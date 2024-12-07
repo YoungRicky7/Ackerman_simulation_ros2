@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<robot name="orbbec_hunter2" xmlns:xacro="http://www.ros.org/wiki/xacro">
-
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/base/base.urdf.xacro"/>
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/base/sensor.urdf.xacro"/>
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/base/hunter_ros2_control.urdf.xacro"/>
-
-</robot>

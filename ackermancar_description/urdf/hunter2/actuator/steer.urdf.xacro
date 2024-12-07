@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visual_dir.urdf.xacro"/>
+
+    <xacro:macro name="steering_link" params="prefix">
+        <link name="${prefix}_steering_link">
+            <inertial>
+                <origin xyz="0 0.023901 -0.02621" rpy="0 0 0" />
+                <mass value="0.054143" />
+                <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="${VISUAL_DIR}/${prefix}_steering.STL" />
+                </geometry>
+                <material name="">
+                    <color rgba="0.79216 0.81961 0.93333 1" />
+                </material>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="${VISUAL_DIR}/${prefix}_steering.STL" />
+                </geometry>
+            </collision>
+        </link>
+    </xacro:macro>
+
+    <xacro:macro name="steering_joint" params="prefix x y z">
+        <joint name="${prefix}_steering_joint" type="revolute">
+            <origin xyz="${x} ${y} ${z}" rpy="0 0 0" />
+            <parent link="base_link" />
+            <child link="${prefix}_steering_link" />
+            <dynamics damping="0.5" friction="0.01"/>
+            <axis xyz="0 0 1" />
+            <limit lower="-0.575" upper="0.575" effort="1000" velocity="100"/>
+        </joint>
+    </xacro:macro>
+
+    <link name="steering">
+    </link>
+    <joint name="steering_joint" type="continuous">
+        <origin xyz="0.37142 0 -0.1695" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="steering"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+</robot>

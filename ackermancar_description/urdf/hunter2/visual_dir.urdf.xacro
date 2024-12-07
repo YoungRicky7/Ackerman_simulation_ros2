@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="VISUAL_DIR" value="$(find ackermancar_description)/meshes/hunter2/visual"/>
+
+</robot>
