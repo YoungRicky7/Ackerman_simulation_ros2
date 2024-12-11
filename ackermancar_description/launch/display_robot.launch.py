@@ -31,7 +31,12 @@ from launch.substitutions import Command
 
 def generate_launch_description():
     package_name = 'ackermancar_description'
-    robot_name = "hunter2"
+    robot = DeclareLaunchArgument(
+        name="robot",
+        default_value="hunter2",
+    )
+
+    robot_name = "neor_mini"
     urdf_name = robot_name+".urdf"
     file_prefix = "urdf/"+robot_name+"/"
 
@@ -69,4 +74,4 @@ def generate_launch_description():
         arguments=['-d', LaunchConfiguration('rvizconfig')],
         )
 
-    return LaunchDescription([robot_state_publisher_node, joint_state_publisher_node, rvizconfig,rviz2_node])
+    return LaunchDescription([robot,robot_state_publisher_node, joint_state_publisher_node, rvizconfig,rviz2_node])

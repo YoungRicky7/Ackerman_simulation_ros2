@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visual_dir.urdf.xacro"/>
+    <xacro:include filename="$(find ackermancar_description)/urdf/hunter2/visual_dir.urdf.xacro"/>
 
     <link name="base_link">
         <!-- <inertial>

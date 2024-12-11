@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<robot name="orbbec_hunter2_base" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+<robot name="hunter2_base" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/actuator/wheel.urdf.xacro"/>
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/actuator/steer.urdf.xacro"/>
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/actuator/caster.urdf.xacro"/>
+    <xacro:include filename="$(find ackermancar_description)/urdf/hunter2/actuator/wheel.urdf.xacro"/>
+    <xacro:include filename="$(find ackermancar_description)/urdf/hunter2/actuator/steer.urdf.xacro"/>
+    <xacro:include filename="$(find ackermancar_description)/urdf/hunter2/actuator/caster.urdf.xacro"/>
 
     <xacro:property name="MU1" value="5.0"/>
     <xacro:property name="MU2" value="5.0"/>

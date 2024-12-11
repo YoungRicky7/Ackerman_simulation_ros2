@@ -922,12 +922,6 @@
   </gazebo>
   <gazebo>
     <plugin filename="libgazebo_ros_ackermann_drive.so" name="gazebo_ros_ackermann_drive">
-      <!-- <ros>
-                <namespace>/orbbec_hunter2</namespace>
-                <remapping> cmd_vel:=cmd_vel </remapping>
-                <remapping> odom:=odom </remapping>
-                <remapping> distance:=distance </remapping>
-            </ros> -->
       <update_rate>50.0</update_rate>
       <!-- wheels -->
       <front_left_joint>front_left_wheel_joint</front_left_joint>

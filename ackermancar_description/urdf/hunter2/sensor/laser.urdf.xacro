@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visual_dir.urdf.xacro"/>
+    <xacro:include filename="$(find ackermancar_description)/urdf/hunter2/visual_dir.urdf.xacro"/>
     <link name="lidar">
         <inertial>
             <origin xyz="0 0 0.036317" rpy="0 0 0" />

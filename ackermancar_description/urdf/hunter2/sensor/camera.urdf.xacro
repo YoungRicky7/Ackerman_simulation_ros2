@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visual_dir.urdf.xacro"/>
+    <xacro:include filename="$(find ackermancar_description)/urdf/hunter2/visual_dir.urdf.xacro"/>
 
     <xacro:macro name="rgb_camera" params="prefix">
         <link name="${prefix}_camera_link">

@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <!-- <xacro:include filename="$(find fishbot_description)/urdf/fishbot/common_inertia.xacro" /> -->
-    <xacro:include filename="$(find ackermancar_description)/urdf/orbbec_hunter2/visual_dir.urdf.xacro" />
+    <xacro:include filename="$(find ackermancar_description)/urdf/hunter2/visual_dir.urdf.xacro" />
 
     <xacro:property name="wheel_width" value="0.14"/>
     <xacro:property name="wheel_radius" value="0.165"/>
@@ -39,7 +38,7 @@
             <mu1 value="${mu1}"/>
             <mu2 value="${mu2}"/>
             <kp value="${kp}" />
-            <kd value="${kd}" />
+            <kd value="${kd}" />z
         </gazebo>
     </xacro:macro>
 

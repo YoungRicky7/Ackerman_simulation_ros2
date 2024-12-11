@@ -30,7 +30,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 from launch.substitutions import Command
 
 def generate_launch_description():
-    robot_name = "hunter2"  # hunter hunter2
+    robot_name = "neor_mini"  # hunter hunter2 neor_mini
     file_prefix = "urdf/"+robot_name+"/"
     package_name = "ackermancar_description"
     world_file_path = "worlds/simple_world.world"
@@ -39,7 +39,7 @@ def generate_launch_description():
     pkg_share = FindPackageShare(package=package_name).find(package_name)
     world_path = os.path.join(pkg_path, world_file_path)  
     print(world_path)
-    xacro_name = "hunter2.urdf.xacro"
+    xacro_name = robot_name+".urdf.xacro"
     xacro_model_path = os.path.join(pkg_share, f"{file_prefix+xacro_name}")
 
     rviz_path = os.path.join(pkg_share, "rviz/gazebo.rviz")

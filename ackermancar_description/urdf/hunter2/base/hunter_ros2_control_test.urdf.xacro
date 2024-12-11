@@ -7,69 +7,35 @@
         </hardware>
 
         <joint name="front_left_wheel_joint">
-            <command_interface name="velocity">
-                <param name="min">0.0</param>
-                <param name="max">20.0</param>
-            </command_interface>
+            <command_interface name="position"/>
             <state_interface name="position" />
-            <state_interface name="velocity" />
         </joint>
 
         <joint name="front_right_wheel_joint">
-            <command_interface name="velocity">
-                <param name="min">0.0</param>
-                <param name="max">20.0</param>
-            </command_interface>
+            <command_interface name="position"/>
             <state_interface name="position" />
-            <state_interface name="velocity" />
         </joint>
 
         <joint name="rear_left_wheel_joint">
-            <command_interface name="velocity">
-                <param name="min">0.0</param>
-                <param name="max">20.0</param>
-            </command_interface>
+            <command_interface name="velocity"/>
             <state_interface name="position" />
             <state_interface name="velocity" />
         </joint>
 
         <joint name="rear_right_wheel_joint">
-            <command_interface name="velocity">
-                <param name="min">0.0</param>
-                <param name="max">20.0</param>
-            </command_interface>
+            <command_interface name="velocity"/>
             <state_interface name="position" />
             <state_interface name="velocity" />
-        </joint>
-
-        <joint name="front_left_steering_joint">
-            <command_interface name="position">
-                <param name="min">-1.0</param>
-                <param name="max">1.0</param>
-            </command_interface>
-            <state_interface name="position" />
-        </joint>
-
-        <joint name="front_right_steering_joint">
-            <command_interface name="position">
-                <param name="min">-1.0</param>
-                <param name="max">1.0</param>
-            </command_interface>
-            <state_interface name="position" />
-        </joint>
-
-        <joint name="steering_joint">
-            <command_interface name="position">
-                <param name="min">-1.0</param>
-                <param name="max">1.0</param>
-            </command_interface>
-            <state_interface name="position" />
         </joint>
     </ros2_control>
 
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <parameters>$(find ackermancar_description)/params/controller.yaml</parameters>
+            <parameters>$(find ackermancar_description)/params/hunter2/controller.yaml</parameters>
+            <!-- <ros>
+                <remapping>/hunter2_ackermann_drive_controller/cmd_vel_unstamped:=/cmd_vel</remapping>
+                <remapping>/hunter2_ackermann_drive_controller/odom:=/odom</remapping>
+            </ros> -->
         </plugin>
     </gazebo>
 </robot>
