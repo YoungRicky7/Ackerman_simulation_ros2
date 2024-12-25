@@ -9,20 +9,25 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(gazebo_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(nav2_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-add_executable(init_initial_pose src/init_initial_pose.cpp)
+add_executable(amcl_auto_init src/amcl_auto_init.cpp)
 ament_target_dependencies(
-  init_initial_pose 
+  amcl_auto_init 
   "gazebo_msgs"
   "rclcpp"
+  "nav2_msgs"
+  "geometry_msgs"
   )
 
-install(TARGETS init_initial_pose
+install(TARGETS amcl_auto_init
   DESTINATION lib/${PROJECT_NAME})
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

@@ -33,7 +33,7 @@ def generate_launch_description():
     robot_name = "neor_mini"  # hunter hunter2 neor_mini
     file_prefix = "urdf/"+robot_name+"/"
     package_name = "ackermancar_description"
-    world_file_path = "worlds/simple_world.world"
+    world_file_path = "worlds/simple_race_road.world"
 
     pkg_path = os.path.join(get_package_share_directory(package_name))
     pkg_share = FindPackageShare(package=package_name).find(package_name)
@@ -82,17 +82,19 @@ def generate_launch_description():
         ],
     )
 
-    # rviz2_node = Node(
-    #     package="rviz2",
-    #     executable="rviz2",
-    #     name="rviz2",
-    #     output="screen",
-    #     arguments=["-d", LaunchConfiguration("rvizconfig")],
-    # )
+    rviz2_node = Node(
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        output="screen",
+        arguments=["-d", LaunchConfiguration("rvizconfig")],
+    )
 
-    spawn_x_val = '-3.0'
-    spawn_y_val = '-8.0'
-    spawn_z_val = '0.4'
+    # x: -2.9, y: -7.99 for simple_word
+    # x: -12.0, y: 19.5 for simple_race_road
+    spawn_x_val = '-12.0'
+    spawn_y_val = '19.5'
+    spawn_z_val = '0.2'
     spawn_yaw_val = '0.0'
 
     launch_gazebo = IncludeLaunchDescription(
@@ -119,5 +121,6 @@ def generate_launch_description():
             robot_state_publisher_node,
             joint_state_publisher_node,
             rvizconfig,
+            rviz2_node,
         ]
     )

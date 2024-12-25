@@ -32,6 +32,11 @@ from launch.substitutions import Command
 
 
 def generate_launch_description():
+    use_sim_time = DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="true",
+        description="Use simulation (Gazebo) clock if true",
+    )
     gazebo_launch_file = os.path.join(
         get_package_share_directory("ackermancar_description"),
         "launch",
@@ -42,13 +47,27 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(gazebo_launch_file)
     )
 
-    mapping_launch_file = os.path.join(
-        get_package_share_directory("slam_toolbox"),
-        "launch",
-        "online_sync_launch.py",
-    )
-    mapping_launch = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(mapping_launch_file)
+    slam_params_file = DeclareLaunchArgument(
+        "slam_params_file",
+        default_value=os.path.join(
+            get_package_share_directory("ackermancar_navigation2"),
+            "params",
+            "slam_toolbox",
+            "mapper_params_online_sync.yaml",
+        ),
     )
 
-    return LaunchDescription([gazebo_launch, mapping_launch])
+    start_async_slam_toolbox_node = Node(
+        parameters=[
+            LaunchConfiguration("slam_params_file"),
+            {"use_sim_time": LaunchConfiguration("use_sim_time")},
+        ],
+        package="slam_toolbox",
+        executable="sync_slam_toolbox_node",
+        name="slam_toolbox",
+        output="screen",
+    )
+
+    return LaunchDescription(
+        [gazebo_launch, use_sim_time, slam_params_file, start_async_slam_toolbox_node]
+    )

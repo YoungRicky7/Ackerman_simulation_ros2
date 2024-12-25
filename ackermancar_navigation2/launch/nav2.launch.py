@@ -32,6 +32,8 @@ from launch.substitutions import Command
 
 
 def generate_launch_description():
+    robot_name = "neor_mini"
+    map_name = "simple_race_road"
     gazebo_launch_file = os.path.join(
         get_package_share_directory("ackermancar_description"),
         "launch",
@@ -61,11 +63,11 @@ def generate_launch_description():
 
     use_sim_time = DeclareLaunchArgument("use_sim_time", default_value="true")
     map_yaml_path = DeclareLaunchArgument(
-        "map_yaml_path", default_value=os.path.join(pkg_share, "maps", "simple_world.yaml")
+        "map_yaml_path", default_value=os.path.join(pkg_share, "maps", map_name+".yaml")
     )
     param_path = DeclareLaunchArgument(
         "params_file_path",
-        default_value=os.path.join(pkg_share, "params", "nav2_params.yaml"),
+        default_value=os.path.join(pkg_share, "params"+"/nav2", robot_name+"_nav2_params.yaml"),
     )
 
     nav2_bringup_path = os.path.join(
@@ -82,17 +84,25 @@ def generate_launch_description():
         }.items(),
     )
 
-    initial_pose_cmd = ExecuteProcess(
-        cmd=[
-            FindExecutable(name="ros2"),
-            "topic",
-            "pub",
-            "-1",
-            "/initialpose",
-            "geometry_msgs/PoseWithCovarianceStamped",
-            "{header: {frame_id: 'map'}, pose: {pose: {position: {x: -3.0, y: -8.0, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}, covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}}",
-        ],
-        output="screen",
+    # x: -2.9, y: -7.99 for simple_word
+    # x: -12.0, y: 19.5 for simple_race_road
+    # initial_pose_cmd = ExecuteProcess(
+    #     cmd=[
+    #         FindExecutable(name="ros2"),
+    #         "topic",
+    #         "pub",
+    #         "-1",
+    #         "/initialpose",
+    #         "geometry_msgs/PoseWithCovarianceStamped",
+    #         "{header: {frame_id: 'map'}, pose: {pose: {position: {x: -12.0, y: 19.5, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}, covariance: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]}}",
+    #     ],
+    #     output="screen",
+    # )
+
+    amcl_init = Node(
+        package='ackermancar_navigation2',
+        executable='amcl_auto_init',
+        output='screen',
     )
 
     return LaunchDescription(
@@ -103,6 +113,6 @@ def generate_launch_description():
             gazebo_launch,
             nav2_bringup_launch,
             rviz2_node,
-            initial_pose_cmd,
+            amcl_init,
         ]
     )
