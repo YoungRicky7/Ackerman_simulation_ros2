@@ -9,8 +9,12 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(gazebo_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(nav_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
@@ -21,11 +25,31 @@ ament_target_dependencies(
   amcl_auto_init 
   "gazebo_msgs"
   "rclcpp"
+  "rclcpp_action"
+  "nav_msgs"
   "nav2_msgs"
   "geometry_msgs"
+  "tf2"
+  "tf2_ros"
   )
 
 install(TARGETS amcl_auto_init
+  DESTINATION lib/${PROJECT_NAME})
+
+add_executable(compute_tracking_time src/compute_tracking_time.cpp)
+ament_target_dependencies(
+  compute_tracking_time
+  "gazebo_msgs"
+  "rclcpp"
+  "rclcpp_action"
+  "nav_msgs"
+  "nav2_msgs"
+  "geometry_msgs"
+  "tf2"
+  "tf2_ros"
+  )
+
+install(TARGETS compute_tracking_time
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
