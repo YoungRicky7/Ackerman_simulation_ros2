@@ -42,6 +42,7 @@ LookupTable NodeHybrid::dist_heuristic_lookup_table;
 nav2_costmap_2d::Costmap2D * NodeHybrid::sampled_costmap = nullptr;
 CostmapDownsampler NodeHybrid::downsampler;
 ObstacleHeuristicQueue NodeHybrid::obstacle_heuristic_queue;
+double NodeHybrid::final_cost = 0.0;
 
 // Each of these tables are the projected motion models through
 // time and space applied to the search on the current node in
@@ -711,12 +712,14 @@ bool NodeHybrid::backtracePath(CoordinateVector & path)
     // Convert angle to radians
     path.back().theta = NodeHybrid::motion_table.getAngleFromBin(path.back().theta);
     current_node = current_node->parent;
+    final_cost += current_node->getCost();
   }
 
   // add the start pose
   path.push_back(current_node->pose);
   // Convert angle to radians
   path.back().theta = NodeHybrid::motion_table.getAngleFromBin(path.back().theta);
+  final_cost += current_node->getCost();
 
   return true;
 }

@@ -33,7 +33,8 @@ def generate_launch_description():
     robot_name = "neor_mini"  # hunter hunter2 neor_mini
     file_prefix = "urdf/"+robot_name+"/"
     package_name = "ackermancar_description"
-    world_file_path = "worlds/office.world"
+    world_name = "simple_world"
+    world_file_path = "worlds/"+world_name+".world"
 
     pkg_path = os.path.join(get_package_share_directory(package_name))
     pkg_share = FindPackageShare(package=package_name).find(package_name)

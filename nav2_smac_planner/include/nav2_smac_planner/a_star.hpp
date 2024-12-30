@@ -187,6 +187,8 @@ public:
    */
   unsigned int & getSizeDim3();
 
+  double getFinalCost() const;
+
 protected:
   /**
    * @brief Get pointer to next goal in open set
@@ -245,6 +247,8 @@ protected:
   inline void populateExpansionsLog(
       const NodePtr &node, std::vector<std::tuple<float, float, float>> *expansions_log);
 
+  
+
   int _timing_interval = 5000;
 
   bool _traverse_unknown;
@@ -271,6 +275,8 @@ protected:
   GridCollisionChecker * _collision_checker;
   nav2_costmap_2d::Costmap2D * _costmap;
   std::unique_ptr<AnalyticExpansion<NodeT>> _expander;
+
+  double final_cost_{};
 };
 
 }  // namespace nav2_smac_planner

@@ -33,7 +33,7 @@ from launch.substitutions import Command
 
 def generate_launch_description():
     robot_name = "neor_mini"
-    map_name = "office"
+    map_name = "simple_world"
     gazebo_launch_file = os.path.join(
         get_package_share_directory("ackermancar_description"),
         "launch",

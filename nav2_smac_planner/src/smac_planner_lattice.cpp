@@ -301,23 +301,14 @@ nav_msgs::msg::Path SmacPlannerLattice::createPlan(
       _name.c_str(), error.c_str());
     return plan;
   }
-  steady_clock::time_point current_time = steady_clock::now();
-  if (!error.empty())
-  {
+
+  if (!error.empty()){
     RCLCPP_WARN(
         _logger,
         "%s: failed to create plan, %s.",
         _name.c_str(), error.c_str());
     return plan;
-  }
-  else
-  {
-    duration<double> planning_time = duration_cast<duration<double>>(current_time - last_time);
-    RCLCPP_INFO(
-        _logger,
-        "**********************lattice Plan created in %f ms with %d iterations.*****************",
-        planning_time.count() * 1000, num_iterations);
-  }
+    }
 
   // Convert to world coordinates
   plan.poses.reserve(path.size());

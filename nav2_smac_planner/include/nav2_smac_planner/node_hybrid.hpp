@@ -453,6 +453,7 @@ public:
   // Dubin / Reeds-Shepp lookup and size for dereferencing
   static LookupTable dist_heuristic_lookup_table;
   static float size_lookup;
+  static double final_cost;
 
 private:
   float _cell_cost;

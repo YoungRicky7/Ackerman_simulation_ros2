@@ -400,11 +400,8 @@ nav_msgs::msg::Path SmacPlannerHybrid::createPlan(
     return plan;
   }else
   {
-    duration<double> planning_time = duration_cast<duration<double>>(current_time - last_time);
-    RCLCPP_INFO(
-      _logger,
-      "**********************hybrid Plan created in %f ms with %d iterations.*****************",
-      planning_time.count()*1000, num_iterations);
+    std::cout << "******* " << "expansions's size is " << expansions->size() << " *******" << std::endl;
+    std::cout << "******* " << "path's cost is " << _a_star->getFinalCost() << " *******" << std::endl;
   }
 
   // Convert to world coordinates

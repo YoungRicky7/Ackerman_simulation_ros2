@@ -328,6 +328,9 @@ bool AStarAlgorithm<NodeT>::createPath(
 
     // 3) Check if we're at the goal, backtrace if required
     if (isGoal(current_node)) {
+      auto end_time = steady_clock::now();  
+      std::cout<<"******* "<<"planning time: "<<duration_cast<microseconds>(end_time - start_time).count()/1000.0<<"ms"<<" *******"<<std::endl;
+      final_cost_ = g_cost;
       return current_node->backtracePath(path);
     } else if (_best_heuristic_node.first < getToleranceHeuristic()) {
       // Optimization: Let us find when in tolerance and refine within reason
@@ -467,6 +470,12 @@ template<typename NodeT>
 unsigned int & AStarAlgorithm<NodeT>::getSizeDim3()
 {
   return _dim3_size;
+}
+
+template<typename NodeT>
+double AStarAlgorithm<NodeT>::getFinalCost() const
+{
+  return final_cost_;
 }
 
 // Instantiate algorithm for the supported template types
