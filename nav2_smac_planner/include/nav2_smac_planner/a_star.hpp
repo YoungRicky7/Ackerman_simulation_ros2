@@ -22,6 +22,7 @@
 #include <memory>
 #include <queue>
 #include <utility>
+#include <fstream>
 #include "Eigen/Core"
 
 #include "nav2_costmap_2d/costmap_2d.hpp"

@@ -272,7 +272,8 @@ nav_msgs::msg::Path SmacPlanner2D::createPlan(
       "%s: failed to create plan, %s.",
       _name.c_str(), error.c_str());
     return plan;
-  }
+  }else
+    std::cout << "******* " << "path's cost is " << _a_star->getFinalCost() << " *******" << std::endl;
 
   // Convert to world coordinates
   plan.poses.reserve(path.size());

@@ -329,8 +329,46 @@ bool AStarAlgorithm<NodeT>::createPath(
     // 3) Check if we're at the goal, backtrace if required
     if (isGoal(current_node)) {
       auto end_time = steady_clock::now();  
-      std::cout<<"******* "<<"planning time: "<<duration_cast<microseconds>(end_time - start_time).count()/1000.0<<"ms"<<" *******"<<std::endl;
+      auto planning_time = duration_cast<microseconds>(end_time - start_time).count()/1000.0;
       final_cost_ = g_cost;
+      std::cout<<"******* "<<"planning time: "<<planning_time<<"ms"<<" *******"<<std::endl;
+      std::cout << "******* " << "iterations's size is " << iterations << " *******" << std::endl;
+      std::cout << "******* " << "path's cost is " << final_cost_ << " *******" << std::endl;
+      if(expansions_log!=nullptr)
+        std::cout << "******* " << "expansions's size is " << expansions_log->size() << " *******" << std::endl;
+
+      const char *home_dir = getenv("HOME");
+      if (home_dir == nullptr)
+      {
+        std::cerr << "Unable to get HOME environment variable" << std::endl;
+      }
+
+      int status;
+      std::string type_name = abi::__cxa_demangle(typeid(NodeT).name(), 0, 0, &status);
+      if(_dim3_size==32) type_name = "HybridFocalSearch";
+      std::string log_file_path = std::string(home_dir) + "/" + type_name+ "_log_file.txt";
+
+      std::ofstream log_file(log_file_path, std::ios::app);
+
+      if (log_file.is_open()){
+        if (log_file.tellp() == 0)
+        {
+          if (expansions_log != nullptr)
+            log_file << "expansions ";
+          log_file << "planning_time(ms) iterations path_cost" << std::endl;
+        }
+          
+        if (expansions_log != nullptr)
+          log_file << expansions_log->size() << " ";
+        log_file << planning_time << " ";
+        log_file << iterations << " ";
+        log_file << final_cost_ << std::endl;
+        log_file.close();
+      }
+      else{
+        std::cerr << "Unable to open log file" << std::endl;
+      }
+      
       return current_node->backtracePath(path);
     } else if (_best_heuristic_node.first < getToleranceHeuristic()) {
       // Optimization: Let us find when in tolerance and refine within reason

@@ -52,6 +52,22 @@ ament_target_dependencies(
 install(TARGETS compute_tracking_time
   DESTINATION lib/${PROJECT_NAME})
 
+add_executable(set_goal_pose src/set_goal_pose.cpp)
+ament_target_dependencies(
+  set_goal_pose
+  "gazebo_msgs"
+  "rclcpp"
+  "rclcpp_action"
+  "nav_msgs"
+  "nav2_msgs"
+  "geometry_msgs"
+  "tf2"
+  "tf2_ros"
+  )
+
+install(TARGETS set_goal_pose
+  DESTINATION lib/${PROJECT_NAME})
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
