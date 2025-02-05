@@ -54,27 +54,26 @@ def generate_launch_description():
     )
 
     rviz2_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        output='screen',
-        arguments=['-d', rviz_file_path]
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        output="screen",
+        arguments=["-d", rviz_file_path],
     )
 
     use_sim_time = DeclareLaunchArgument("use_sim_time", default_value="true")
     map_yaml_path = DeclareLaunchArgument(
-        "map_yaml_path", default_value=os.path.join(pkg_share, "maps", map_name+".yaml")
+        "map_yaml_path",
+        default_value=os.path.join(pkg_share, "maps", map_name + ".yaml"),
     )
     param_path = DeclareLaunchArgument(
         "params_file_path",
-        default_value=os.path.join(pkg_share, "params"+"/nav2", robot_name+"_nav2_params.yaml"),
+        default_value=os.path.join(
+            pkg_share, "params" + "/nav2", robot_name + "_nav2_params.yaml"
+        ),
     )
 
-    nav2_bringup_path = os.path.join(
-        nav2_share,
-        'launch',
-        'bringup_launch.py'
-    )
+    nav2_bringup_path = os.path.join(nav2_share, "launch", "bringup_launch.py")
     nav2_bringup_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(nav2_bringup_path),
         launch_arguments={
@@ -100,9 +99,9 @@ def generate_launch_description():
     # )
 
     amcl_init = Node(
-        package='ackermancar_navigation2',
-        executable='amcl_auto_init',
-        output='screen',
+        package="ackermancar_navigation2",
+        executable="amcl_auto_init",
+        output="screen",
     )
 
     return LaunchDescription(

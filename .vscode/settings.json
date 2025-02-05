@@ -70,6 +70,32 @@
         "thread": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
-    }
+        "variant": "cpp",
+        "*.ipp": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
+    },
+    "python.autoComplete.extraPaths": [
+        "/home/youngricky/gazebo_classic_ros2_ws/install/mbot_description/lib/python3.10/site-packages",
+        "/home/youngricky/gazebo_classic_ros2_ws/install/argus_gazebo/lib/python3.10/site-packages",
+        "/home/youngricky/webots_ws/install/webots_ros2_turtlebot_mppi/lib/python3.10/site-packages",
+        "/home/youngricky/ign_gazebo_ws/install/ros_ign_interfaces/local/lib/python3.10/dist-packages",
+        "/home/youngricky/ign_gazebo_ws/install/ros_gz_interfaces/local/lib/python3.10/dist-packages",
+        "/home/youngricky/ign_gazebo_ws/install/eddiebot_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/youngricky/gazebo_classic_ros2_ws/install/mbot_description/lib/python3.10/site-packages",
+        "/home/youngricky/gazebo_classic_ros2_ws/install/argus_gazebo/lib/python3.10/site-packages",
+        "/home/youngricky/webots_ws/install/webots_ros2_turtlebot_mppi/lib/python3.10/site-packages",
+        "/home/youngricky/ign_gazebo_ws/install/ros_ign_interfaces/local/lib/python3.10/dist-packages",
+        "/home/youngricky/ign_gazebo_ws/install/ros_gz_interfaces/local/lib/python3.10/dist-packages",
+        "/home/youngricky/ign_gazebo_ws/install/eddiebot_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
 }

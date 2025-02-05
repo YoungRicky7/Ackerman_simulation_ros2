@@ -94,8 +94,8 @@ def generate_launch_description():
     # x: -2.9, y: -7.99 for simple_world
     # x: -12.0, y: 19.5 for simple_race_road
     # 4.1, -38.4 office
-    spawn_x_val = "1.0"
-    spawn_y_val = "1.0"
+    spawn_x_val = "-2.9"
+    spawn_y_val = "-7.99"
     spawn_z_val = '0.2'
     spawn_yaw_val = '0.0'
 

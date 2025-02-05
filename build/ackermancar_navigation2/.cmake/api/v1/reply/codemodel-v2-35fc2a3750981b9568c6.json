@@ -1,0 +1,115 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-23fbab317f5dfd5b4a2e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ackermancar_navigation2",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ackermancar_navigation2_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ackermancar_navigation2_uninstall-8e3cc12dbd05c517050d.json",
+					"name" : "ackermancar_navigation2_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "amcl_auto_init::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-amcl_auto_init-984c74199b582c6fa14f.json",
+					"name" : "amcl_auto_init",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "compute_tracking_time::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-compute_tracking_time-7a3870564bd93a2ab329.json",
+					"name" : "compute_tracking_time",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "set_goal_pose::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-set_goal_pose-d02ab1d61b0d9cda93a4.json",
+					"name" : "set_goal_pose",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "smoother_client::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-smoother_client-274b42d6faf09fad2ec2.json",
+					"name" : "smoother_client",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-c1a22880fffe7e549421.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "visualize_path::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-visualize_path-0f4bc3bc7875107a5f2b.json",
+					"name" : "visualize_path",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/youngricky/graduation_project_ws/src/build/ackermancar_navigation2",
+		"source" : "/home/youngricky/graduation_project_ws/src/ackermancar_navigation2"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,63 @@
+[0.061s] Invoking command in '/home/youngricky/graduation_project_ws/src/build/nav2_smac_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/youngricky/graduation_project_ws/install/teb_msgs:/home/youngricky/gazebo_classic_ros2_ws/install/mbot_description:/home/youngricky/gazebo_classic_ros2_ws/install/argus_gazebo:/home/youngricky/webots_ws/install/webots_ros2_turtlebot_mppi:/opt/ros/humble /usr/bin/cmake /home/youngricky/graduation_project_ws/src/nav2_smac_planner -DCMAKE_INSTALL_PREFIX=/home/youngricky/graduation_project_ws/src/install/nav2_smac_planner
+[0.124s] -- The C compiler identification is GNU 11.4.0
+[0.173s] -- The CXX compiler identification is GNU 11.4.0
+[0.180s] -- Detecting C compiler ABI info
+[0.260s] -- Detecting C compiler ABI info - done
+[0.267s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.267s] -- Detecting C compile features
+[0.268s] -- Detecting C compile features - done
+[0.270s] -- Detecting CXX compiler ABI info
+[0.362s] -- Detecting CXX compiler ABI info - done
+[0.370s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.370s] -- Detecting CXX compile features
+[0.370s] -- Detecting CXX compile features - done
+[0.378s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.779s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.925s] -- Found nav2_common: 1.1.17 (/opt/ros/humble/share/nav2_common/cmake)
+[0.929s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[0.996s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.006s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.020s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.038s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.064s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.140s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.146s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.238s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.270s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.309s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.324s] -- Looking for pthread.h
+[1.387s] -- Looking for pthread.h - found
+[1.387s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.456s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.457s] -- Found Threads: TRUE  
+[1.510s] -- Found rclcpp_action: 16.0.11 (/opt/ros/humble/share/rclcpp_action/cmake)
+[1.547s] -- Found rclcpp_lifecycle: 16.0.11 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[1.571s] -- Found visualization_msgs: 4.2.4 (/opt/ros/humble/share/visualization_msgs/cmake)
+[1.619s] -- Found nav2_util: 1.1.17 (/opt/ros/humble/share/nav2_util/cmake)
+[1.772s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.773s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.773s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.806s] -- Found nav2_core: 1.1.17 (/opt/ros/humble/share/nav2_core/cmake)
+[1.905s] -- Found ompl: /opt/ros/humble/include/ompl-1.6;/usr/include;/usr/include/eigen3  
+[2.150s] -- Found OpenMP_C: -fopenmp (found version "4.5") 
+[2.226s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[2.226s] -- Found OpenMP: TRUE (found version "4.5")  
+[2.228s] -- Found OpenMP_C: -fopenmp (found version "4.5") 
+[2.228s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[2.520s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.626s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[3.461s] -- Added test 'copyright' to check source files copyright and LICENSE
+[3.464s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.464s] -- Configured cppcheck include dirs: /home/youngricky/graduation_project_ws/src/nav2_smac_planner/include
+[3.465s] -- Configured cppcheck exclude dirs and/or files: include/nav2_smac_planner/thirdparty/robin_hood.h
+[3.467s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[3.467s] -- Configured cpplint exclude dirs and/or files: include/nav2_smac_planner/thirdparty/robin_hood.h
+[3.467s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.469s] -- Added test 'lint_cmake' to check CMake code style
+[3.469s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.471s] -- Added test 'uncrustify' to check C / C++ code style
+[3.471s] -- Configured uncrustify additional arguments: 
+[3.472s] -- Added test 'xmllint' to check XML markup files
+[3.475s] -- Configuring done
+[3.816s] -- Generating done
+[3.856s] -- Build files have been written to: /home/youngricky/graduation_project_ws/src/build/nav2_smac_planner

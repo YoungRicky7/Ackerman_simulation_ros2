@@ -13,8 +13,10 @@ find_package(rclcpp_action REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(ackermann_msgs)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED) 
 
 # uncomment the following section in order to fill in
 # further dependencies manually.
@@ -31,6 +33,7 @@ ament_target_dependencies(
   "geometry_msgs"
   "tf2"
   "tf2_ros"
+  "tf2_geometry_msgs"
   )
 
 install(TARGETS amcl_auto_init
@@ -45,8 +48,10 @@ ament_target_dependencies(
   "nav_msgs"
   "nav2_msgs"
   "geometry_msgs"
+  "ackermann_msgs"
   "tf2"
   "tf2_ros"
+  "tf2_geometry_msgs"
   )
 
 install(TARGETS compute_tracking_time
@@ -63,10 +68,45 @@ ament_target_dependencies(
   "geometry_msgs"
   "tf2"
   "tf2_ros"
+  "tf2_geometry_msgs"
   )
 
 install(TARGETS set_goal_pose
   DESTINATION lib/${PROJECT_NAME})
+
+add_executable(smoother_client src/smoother_client.cpp)
+ament_target_dependencies(
+  smoother_client
+  "gazebo_msgs"
+  "rclcpp"
+  "rclcpp_action"
+  "nav_msgs"
+  "nav2_msgs"
+  "geometry_msgs"
+  "tf2"
+  "tf2_ros"
+  "tf2_geometry_msgs"
+  )
+
+install(TARGETS smoother_client
+  DESTINATION lib/${PROJECT_NAME})
+
+add_executable(visualize_path src/visualize_path.cpp)
+ament_target_dependencies(
+  visualize_path
+  "gazebo_msgs"
+  "rclcpp"
+  "rclcpp_action"
+  "nav_msgs"
+  "nav2_msgs"
+  "geometry_msgs"
+  "tf2"
+  "tf2_ros"
+  "tf2_geometry_msgs"
+  )
+install(TARGETS visualize_path
+  DESTINATION lib/${PROJECT_NAME})
+  
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

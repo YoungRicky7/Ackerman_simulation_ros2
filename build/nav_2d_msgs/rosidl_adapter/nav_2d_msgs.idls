@@ -1,0 +1,6 @@
+/home/youngricky/graduation_project_ws/src/build/nav_2d_msgs/rosidl_adapter/nav_2d_msgs:msg/Path2D.idl
+/home/youngricky/graduation_project_ws/src/build/nav_2d_msgs/rosidl_adapter/nav_2d_msgs:msg/Pose2D32.idl
+/home/youngricky/graduation_project_ws/src/build/nav_2d_msgs/rosidl_adapter/nav_2d_msgs:msg/Pose2DStamped.idl
+/home/youngricky/graduation_project_ws/src/build/nav_2d_msgs/rosidl_adapter/nav_2d_msgs:msg/Twist2D.idl
+/home/youngricky/graduation_project_ws/src/build/nav_2d_msgs/rosidl_adapter/nav_2d_msgs:msg/Twist2D32.idl
+/home/youngricky/graduation_project_ws/src/build/nav_2d_msgs/rosidl_adapter/nav_2d_msgs:msg/Twist2DStamped.idl

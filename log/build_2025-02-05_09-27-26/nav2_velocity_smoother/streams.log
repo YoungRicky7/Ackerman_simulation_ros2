@@ -1,0 +1,53 @@
+[0.040s] Invoking command in '/home/youngricky/graduation_project_ws/src/build/nav2_velocity_smoother': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/youngricky/graduation_project_ws/install/teb_msgs:/home/youngricky/gazebo_classic_ros2_ws/install/mbot_description:/home/youngricky/gazebo_classic_ros2_ws/install/argus_gazebo:/home/youngricky/webots_ws/install/webots_ros2_turtlebot_mppi:/opt/ros/humble /usr/bin/cmake /home/youngricky/graduation_project_ws/src/nav2_velocity_smoother -DCMAKE_INSTALL_PREFIX=/home/youngricky/graduation_project_ws/src/install/nav2_velocity_smoother
+[1.053s] -- The C compiler identification is GNU 11.4.0
+[1.053s] -- The CXX compiler identification is GNU 11.4.0
+[1.053s] -- Detecting C compiler ABI info
+[1.053s] -- Detecting C compiler ABI info - done
+[1.053s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.053s] -- Detecting C compile features
+[1.053s] -- Detecting C compile features - done
+[1.053s] -- Detecting CXX compiler ABI info
+[1.053s] -- Detecting CXX compiler ABI info - done
+[1.053s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.053s] -- Detecting CXX compile features
+[1.053s] -- Detecting CXX compile features - done
+[1.054s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.054s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.054s] -- Found nav2_common: 1.1.17 (/opt/ros/humble/share/nav2_common/cmake)
+[1.054s] -- Found rclcpp: 16.0.11 (/opt/ros/humble/share/rclcpp/cmake)
+[1.054s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.054s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.054s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.054s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.073s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.132s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.137s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.237s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.273s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.324s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.339s] -- Looking for pthread.h
+[1.410s] -- Looking for pthread.h - found
+[1.410s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.480s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.481s] -- Found Threads: TRUE  
+[1.560s] -- Found rclcpp_components: 16.0.11 (/opt/ros/humble/share/rclcpp_components/cmake)
+[1.609s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.627s] -- Found nav2_util: 1.1.17 (/opt/ros/humble/share/nav2_util/cmake)
+[1.847s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.848s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.848s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.930s] -- Setting build type to Release as none was specified.
+[2.031s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.173s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[2.238s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.239s] -- Configured cppcheck include dirs: /home/youngricky/graduation_project_ws/src/nav2_velocity_smoother/include
+[2.239s] -- Configured cppcheck exclude dirs and/or files: 
+[2.240s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.240s] -- Configured cpplint exclude dirs and/or files: 
+[2.242s] -- Added test 'lint_cmake' to check CMake code style
+[2.244s] -- Added test 'uncrustify' to check C / C++ code style
+[2.244s] -- Configured uncrustify additional arguments: 
+[2.245s] -- Added test 'xmllint' to check XML markup files
+[2.250s] -- Configuring done
+[2.337s] -- Generating done
+[2.351s] -- Build files have been written to: /home/youngricky/graduation_project_ws/src/build/nav2_velocity_smoother

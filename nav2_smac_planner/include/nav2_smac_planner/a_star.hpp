@@ -248,8 +248,6 @@ protected:
   inline void populateExpansionsLog(
       const NodePtr &node, std::vector<std::tuple<float, float, float>> *expansions_log);
 
-  
-
   int _timing_interval = 5000;
 
   bool _traverse_unknown;

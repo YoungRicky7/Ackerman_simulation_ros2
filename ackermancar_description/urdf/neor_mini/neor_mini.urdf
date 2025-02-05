@@ -62,7 +62,7 @@
     <parent link="base_link"/>
     <child link="left_rear_link"/>
     <axis xyz="0 1 0"/>
-    <limit effort="4000" velocity="100"/>
+    <limit effort="4000" velocity="10"/>
   </joint>
   <link name="right_rear_link">
     <inertial>
@@ -91,7 +91,7 @@
     <parent link="base_link"/>
     <child link="right_rear_link"/>
     <axis xyz="0 1 0"/>
-    <limit effort="4000" velocity="100"/>
+    <limit effort="4000" velocity="10"/>
   </joint>
   <!-- In order to fit ackermann simulation plugins's request,amend the front steer link and it's joint -->
   <link name="front_steer_right_link">
@@ -121,7 +121,7 @@
     <parent link="base_link"/>
     <child link="front_steer_right_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="4000" lower="-0.69" upper="0.69" velocity="100"/>
+    <limit effort="4000" lower="-0.69" upper="0.69" velocity="5"/>
   </joint>
   <!-- ************************************************************************************* -->
   <link name="front_right_wheel_link">
@@ -177,7 +177,7 @@
     <parent link="base_link"/>
     <child link="front_steer_left_link"/>
     <axis xyz="0 0 1"/>
-    <limit effort="4000" lower="-0.69" upper="0.69" velocity="100"/>
+    <limit effort="4000" lower="-0.69" upper="0.69" velocity="5"/>
   </joint>
   <!-- ************************************************************************************* -->
   <link name="front_left_wheel_link">

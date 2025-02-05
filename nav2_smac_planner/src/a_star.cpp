@@ -275,6 +275,7 @@ bool AStarAlgorithm<NodeT>::createPath(
   NeighborIterator neighbor_iterator;
   int analytic_iterations = 0;
   int closest_distance = std::numeric_limits<int>::max();
+  int expansions = 0;
 
   // Given an index, return a node ptr reference if its collision-free and valid
   const unsigned int max_index = getSizeX() * getSizeY() * getSizeDim3();
@@ -306,7 +307,7 @@ bool AStarAlgorithm<NodeT>::createPath(
     if (expansions_log){
       populateExpansionsLog(current_node, expansions_log);
     }
-
+    ++expansions;
     // We allow for nodes to be queued multiple times in case
     // shorter paths result in it, but we can visit only once
     if (current_node->wasVisited()) {
@@ -331,42 +332,61 @@ bool AStarAlgorithm<NodeT>::createPath(
       auto end_time = steady_clock::now();  
       auto planning_time = duration_cast<microseconds>(end_time - start_time).count()/1000.0;
       final_cost_ = g_cost;
-      std::cout<<"******* "<<"planning time: "<<planning_time<<"ms"<<" *******"<<std::endl;
-      std::cout << "******* " << "iterations's size is " << iterations << " *******" << std::endl;
-      std::cout << "******* " << "path's cost is " << final_cost_ << " *******" << std::endl;
-      if(expansions_log!=nullptr)
-        std::cout << "******* " << "expansions's size is " << expansions_log->size() << " *******" << std::endl;
+      bool debug = false;
 
-      const char *home_dir = getenv("HOME");
-      if (home_dir == nullptr)
-      {
-        std::cerr << "Unable to get HOME environment variable" << std::endl;
-      }
+      if(debug){
+        std::cout << "******* " << "planning time: " << planning_time << "ms" << " *******" << std::endl;
+        std::cout << "******* " << "iterations's size is " << iterations << " *******" << std::endl;
+        std::cout << "******* " << "path's cost is " << final_cost_ << " *******" << std::endl;
+        std::cout << "******* " << "expansions's size is " << expansions << " *******" << std::endl;
 
-      int status;
-      std::string type_name = abi::__cxa_demangle(typeid(NodeT).name(), 0, 0, &status);
-      if(_dim3_size==32) type_name = "HybridFocalSearch";
-      std::string log_file_path = std::string(home_dir) + "/" + type_name+ "_log_file.txt";
-
-      std::ofstream log_file(log_file_path, std::ios::app);
-
-      if (log_file.is_open()){
-        if (log_file.tellp() == 0)
+        const char *home_dir = getenv("HOME");
+        if (home_dir == nullptr)
         {
-          if (expansions_log != nullptr)
-            log_file << "expansions ";
-          log_file << "planning_time(ms) iterations path_cost" << std::endl;
+          std::cerr << "Unable to get HOME environment variable" << std::endl;
         }
-          
-        if (expansions_log != nullptr)
-          log_file << expansions_log->size() << " ";
-        log_file << planning_time << " ";
-        log_file << iterations << " ";
-        log_file << final_cost_ << std::endl;
-        log_file.close();
-      }
-      else{
-        std::cerr << "Unable to open log file" << std::endl;
+
+        int status;
+        std::string type_name = abi::__cxa_demangle(typeid(NodeT).name(), 0, 0, &status);
+
+        if (type_name == "nav2_smac_planner::Node2D")
+        {
+          type_name = "Astar";
+        }
+        else if (type_name == "nav2_smac_planner::NodeHybrid")
+        {
+          type_name = "Hybrid";
+        }
+        else if (type_name == "nav2_smac_planner::NodeLattice")
+        {
+          type_name = "Lattice";
+        }
+
+        if (_dim3_size == 32)
+          type_name = "HybridFocalSearch";
+        std::string log_file_path = std::string(home_dir) + "/" + type_name + ".txt";
+
+        std::ofstream log_file(log_file_path, std::ios::app);
+
+        if (log_file.is_open())
+        {
+          if (log_file.tellp() == 0)
+          {
+            if(type_name!="Lattice")
+              log_file << "expansions ";
+            log_file << "planning_time(ms) iterations path_cost" << std::endl;
+          }
+
+          log_file << expansions << " ";
+          log_file << planning_time << " ";
+          log_file << iterations << " ";
+          log_file << final_cost_ << std::endl;
+          log_file.close();
+        }
+        else
+        {
+          std::cerr << "Unable to open log file" << std::endl;
+        }
       }
       
       return current_node->backtracePath(path);

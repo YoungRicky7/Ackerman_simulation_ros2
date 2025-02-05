@@ -1,0 +1,17 @@
+[31mCMake Error at CMakeLists.txt:16 (find_package):
+  By not providing "Findcostmap_converter_msgs.cmake" in CMAKE_MODULE_PATH
+  this project has asked CMake to find a package configuration file provided
+  by "costmap_converter_msgs", but CMake did not find one.
+
+  Could not find a package configuration file provided by
+  "costmap_converter_msgs" with any of the following names:
+
+    costmap_converter_msgsConfig.cmake
+    costmap_converter_msgs-config.cmake
+
+  Add the installation prefix of "costmap_converter_msgs" to
+  CMAKE_PREFIX_PATH or set "costmap_converter_msgs_DIR" to a directory
+  containing one of the above files.  If "costmap_converter_msgs" provides a
+  separate development package or SDK, be sure it has been installed.
+
+[0m

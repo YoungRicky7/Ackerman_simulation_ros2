@@ -1,0 +1,49 @@
+[0.039s] Invoking command in '/home/youngricky/graduation_project_ws/src/build/nav2_regulated_pure_pursuit_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/youngricky/graduation_project_ws/install/teb_msgs:/home/youngricky/gazebo_classic_ros2_ws/install/mbot_description:/home/youngricky/gazebo_classic_ros2_ws/install/argus_gazebo:/home/youngricky/webots_ws/install/webots_ros2_turtlebot_mppi:/opt/ros/humble /usr/bin/cmake /home/youngricky/graduation_project_ws/src/nav2_regulated_pure_pursuit_controller -DCMAKE_INSTALL_PREFIX=/home/youngricky/graduation_project_ws/src/install/nav2_regulated_pure_pursuit_controller
+[0.097s] -- The C compiler identification is GNU 11.4.0
+[0.148s] -- The CXX compiler identification is GNU 11.4.0
+[0.156s] -- Detecting C compiler ABI info
+[0.229s] -- Detecting C compiler ABI info - done
+[0.236s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.236s] -- Detecting C compile features
+[0.237s] -- Detecting C compile features - done
+[0.239s] -- Detecting CXX compiler ABI info
+[0.332s] -- Detecting CXX compiler ABI info - done
+[0.337s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.337s] -- Detecting CXX compile features
+[0.337s] -- Detecting CXX compile features - done
+[0.342s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.726s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.873s] -- Found nav2_common: 1.1.17 (/opt/ros/humble/share/nav2_common/cmake)
+[0.880s] -- Found nav2_core: 1.1.17 (/opt/ros/humble/share/nav2_core/cmake)
+[0.990s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.006s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.025s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.051s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.085s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.179s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.184s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.278s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.310s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.358s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.383s] -- Looking for pthread.h
+[1.454s] -- Looking for pthread.h - found
+[1.454s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.521s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.522s] -- Found Threads: TRUE  
+[1.846s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.846s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.960s] -- Setting build type to Release as none was specified.
+[2.061s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.180s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[2.374s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.375s] -- Configured cppcheck include dirs: /home/youngricky/graduation_project_ws/src/nav2_regulated_pure_pursuit_controller/include
+[2.375s] -- Configured cppcheck exclude dirs and/or files: 
+[2.376s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.377s] -- Configured cpplint exclude dirs and/or files: 
+[2.378s] -- Added test 'lint_cmake' to check CMake code style
+[2.380s] -- Added test 'uncrustify' to check C / C++ code style
+[2.380s] -- Configured uncrustify additional arguments: 
+[2.381s] -- Added test 'xmllint' to check XML markup files
+[2.386s] -- Configuring done
+[2.457s] -- Generating done
+[2.475s] -- Build files have been written to: /home/youngricky/graduation_project_ws/src/build/nav2_regulated_pure_pursuit_controller

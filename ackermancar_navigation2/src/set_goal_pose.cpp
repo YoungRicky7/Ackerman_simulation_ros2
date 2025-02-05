@@ -5,7 +5,7 @@
 #include "tf2/LinearMath/Quaternion.h"
 #include <thread>
 #include <chrono>
-
+#include <atomic>
 struct Pose
 {
     float x;
@@ -25,12 +25,12 @@ public:
 
     void sendGoalPose()
     {
-        int n = 0;
+        std::atomic<int> n(0);
         while (n++<times_&&rclcpp::ok())
         {
             goal_publisher_->publish(start_pose_stamped_);
             goal_publisher_->publish(goal_pose_stamped_);
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(20));
             std::cout<<"---send start and goal pose---"<<std::endl;
         }    
         std::cout<<"---test compeleted---"<<std::endl; 
